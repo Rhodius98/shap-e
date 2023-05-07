@@ -38,8 +38,7 @@ def diffusion_from_config(config: Union[str, Dict[str, Any]]) -> "GaussianDiffus
     )
     if respace is None:
         return GaussianDiffusion(**kwargs)
-    else:
-        return SpacedDiffusion(use_timesteps=space_timesteps(steps, respace), **kwargs)
+    return SpacedDiffusion(use_timesteps=space_timesteps(steps, respace), **kwargs)
 
 
 def get_beta_schedule(beta_schedule, *, beta_start, beta_end, num_diffusion_timesteps):
